@@ -10,9 +10,9 @@ interface BannerProps {
 
 export function Banner({ title, subtitle, className = '' }: BannerProps) {
   return (
-    <div className={`w-full py-8 px-4 md:px-8 bg-gradient-to-r from-purple-900 via-black to-blue-900 ${className}`}>
+    <div className={`w-full py-8 px-4 md:px-8 bg-gradient-banner ${className}`}>
       <div className="mx-auto max-w-6xl">
-        <h1 className="font-druk text-4xl md:text-5xl lg:text-6xl tracking-tighter mb-2 text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white">
+        <h1 className="font-druk text-4xl md:text-5xl lg:text-6xl tracking-tighter mb-2 text-gradient">
           {title}
         </h1>
         {subtitle && (

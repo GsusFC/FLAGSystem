@@ -34,22 +34,36 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-
-  .font-druk {
-    font-family: 'Druk', 'Impact', 'Arial Black', sans-serif;
-    font-weight: 800;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-  }
 }
 
 /* Font declarations */
 @font-face {
   font-family: 'Druk';
-  src: local('Druk Text Wide Heavy'), local('DrukTextWide-Heavy');
+  src: url('/fonts/DrukTextWide-Heavy.woff2') format('woff2');
   font-weight: 800;
   font-style: normal;
   font-display: swap;
+}
+
+.font-druk {
+  font-family: 'Druk', 'Impact', 'Arial Black', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Gradient backgrounds */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #000000 0%, #0f0f30 50%, #000000 100%);
+}
+
+.bg-gradient-banner {
+  background: linear-gradient(90deg, rgba(76,0,112,1) 0%, rgba(0,0,0,1) 50%, rgba(0,22,77,1) 100%);
+}
+
+/* Text gradient */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white;
 }
 
 /* Scrollbar styling */
