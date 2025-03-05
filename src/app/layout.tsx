@@ -3,6 +3,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { useEffect } from 'react'
+import { Navbar } from '../components/ui/Navbar'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-geist-sans' })
 
@@ -26,6 +27,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body className={`${inter.variable} min-h-screen bg-black text-white`}>
+        <Navbar />
         <main className="min-h-screen">
           {children}
         </main>
