@@ -34,12 +34,19 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+
+  .font-druk {
+    font-family: 'Druk', 'Impact', 'Arial Black', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
 }
 
-/* Font definitions */
+/* Font declarations */
 @font-face {
-  font-family: 'Druk Text Wide';
-  src: url('/fonts/Druk Text Wide Heavy.woff2') format('woff2');
+  font-family: 'Druk';
+  src: local('Druk Text Wide Heavy'), local('DrukTextWide-Heavy');
   font-weight: 800;
   font-style: normal;
   font-display: swap;
