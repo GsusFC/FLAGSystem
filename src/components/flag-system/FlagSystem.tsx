@@ -74,32 +74,34 @@ const FlagSystem: React.FC = () => {
   }, [word]);
   
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-10">
       {/* Display Mode Toggle */}
-      <DisplayModeToggle
-        isGridMode={isGridMode}
-        onChange={toggleGridMode}
-      />
-      
-      {/* Main Flag Canvas */}
-      <FlagCanvas
-        word={word}
-        isGridMode={isGridMode}
-      />
-      
-      {/* Controls Section */}
-      <div className="mt-6">
-        <FlagControls
-          word={word}
-          maxLength={maxLength}
-          isGenerating={isGenerating}
-          onWordChange={handleWordChange}
-          onGenerateRandom={handleGenerateRandom}
-          onExportSvg={handleExportSvg}
-          onMaxLengthChange={handleMaxLengthChange}
+      <div className="mb-4 sm:mb-6">
+        <DisplayModeToggle
+          isGridMode={isGridMode}
+          onChange={toggleGridMode}
         />
       </div>
-      
+
+      {/* Main Flag Canvas */}
+      <div className="mb-6 sm:mb-8">
+        <FlagCanvas
+          word={word}
+          isGridMode={isGridMode}
+        />
+      </div>
+
+      {/* Controls Section */}
+      <FlagControls
+        word={word}
+        maxLength={maxLength}
+        isGenerating={isGenerating}
+        onWordChange={handleWordChange}
+        onGenerateRandom={handleGenerateRandom}
+        onExportSvg={handleExportSvg}
+        onMaxLengthChange={handleMaxLengthChange}
+      />
+
       {/* History Section */}
       <FlagHistory
         onSelectWord={handleWordChange}

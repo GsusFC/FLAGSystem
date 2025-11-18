@@ -22,7 +22,7 @@ export const flagMap: Record<string, FlagInfo> = {
   },
   C: {
     letter: 'C',
-    colors: ['#0000FF', '##FFFFFF', '#0000FF', '##FFFFFF', '#0000FF'],
+    colors: ['#0000FF', '#FFFFFF', '#0000FF', '#FFFFFF', '#0000FF'],
     pattern: 'horizontal-stripes'
   },
   D: {
@@ -32,7 +32,7 @@ export const flagMap: Record<string, FlagInfo> = {
   },
   E: {
     letter: 'E',
-    colors: ['#0000FF', '##FF0000'],
+    colors: ['#0000FF', '#FF0000'],
     pattern: 'split-horizontal'
   },
   F: {
