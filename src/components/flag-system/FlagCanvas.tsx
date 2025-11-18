@@ -1,5 +1,6 @@
 import React, { memo, useRef, useEffect, useState } from 'react';
 import { getFlagInfo, supportedLetters } from '../../lib/flag-system/flagMap';
+import NauticalFlag from './NauticalFlag';
 
 interface FlagCanvasProps {
   word: string;
@@ -52,30 +53,26 @@ const FlagCanvas = memo(function FlagCanvas({
     }
     
     return (
-      <div className={`w-full flex ${isGridMode ? 'flex-wrap justify-center gap-6' : 'flex-col items-center gap-6'}`}>
+      <div className={`w-full flex ${isGridMode ? 'flex-wrap justify-center gap-3 sm:gap-4 md:gap-6' : 'flex-col items-center gap-4 md:gap-6'}`}>
         {validLetters.map((letter, index) => {
           const flagInfo = getFlagInfo(letter);
           if (!flagInfo) return null;
-          
+
           return (
-            <div key={`${letter}-${index}`} className={`${isGridMode ? 'w-24 h-24' : 'w-full max-w-md aspect-[3/2]'}`}>
-              <div className="relative w-full h-full overflow-hidden border border-white/10 rounded-md">
-                {/* We would render the actual flag here based on the pattern and colors */}
-                {/* For now just showing a placeholder */}
-                <div 
-                  className="w-full h-full flex items-center justify-center bg-blue-800"
-                  style={{ backgroundColor: flagInfo.colors[0] }}
-                >
-                  <span className="text-white font-bold text-xl drop-shadow-md">
-                    {letter}
-                  </span>
-                </div>
+            <div
+              key={`${letter}-${index}`}
+              className={`${
+                isGridMode
+                  ? 'w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32'
+                  : 'w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg aspect-[3/2]'
+              } transition-all duration-300 hover:scale-105`}
+            >
+              <div className="relative w-full h-full overflow-hidden border-2 border-white/20 rounded-lg shadow-lg hover:shadow-2xl hover:border-white/40 transition-all duration-300">
+                <NauticalFlag flagInfo={flagInfo} className="w-full h-full" />
               </div>
-              {isGridMode && (
-                <div className="text-center mt-2 text-xs text-white/70 font-mono">
-                  {letter}
-                </div>
-              )}
+              <div className="text-center mt-2 text-xs sm:text-sm text-white/70 font-mono uppercase tracking-wider">
+                {letter} {!isGridMode && `- ${flagInfo.letter}`}
+              </div>
             </div>
           );
         })}
